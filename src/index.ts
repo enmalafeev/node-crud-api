@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
     req.method === 'GET'
   ) {
     const id = req.url.split('/')[3];
-    getUser(res, req, id);
+    getUser(req, res, id);
   } else if (req.url === '/api/users' && req.method === 'POST') {
     createUser(req, res);
   } else {
