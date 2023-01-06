@@ -1,4 +1,4 @@
-import { findUsers, findUserById } from '../models/usersModel.js';
+import { findUsers, findUserById, addUser } from '../models/usersModel.js';
 
 export const getUsers = async (req, res) => {
   try {
@@ -26,6 +26,33 @@ export const getUser = async (req, res, id) => {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(user));
     }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const createUser = async (req, res) => {
+  try {
+    let body = '';
+    req.on('data', (chunk) => (body += chunk.toString()));
+    req.on('end', async () => {
+      const { username, age, hobbies } = JSON.parse(body);
+
+      const user = {
+        username,
+        age,
+        hobbies
+      };
+
+      if (!username || !age || !hobbies) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'body does not contains required fields' }));
+      } else {
+        const newUser = await addUser(user);
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(newUser));
+      }
+    });
   } catch (err) {
     console.error(err);
   }
