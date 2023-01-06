@@ -1,13 +1,13 @@
 export class DataBase {
   constructor() {
-    this.users = [];
+    this._users = [];
   }
 
   get users() {
-    return this.users;
+    return this._users;
   }
 
   set users(user) {
-    this.users.push(user);
+    this._users.push(user);
   }
 }
