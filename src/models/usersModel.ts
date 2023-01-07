@@ -26,3 +26,10 @@ export const patchUser = (id: string, updatedUserData: IUser): Promise<IUser | u
     users[index] = { id, ...updatedUserData };
     resolve(users[index]);
   });
+
+export const removeUser = (id: string): Promise<string> =>
+  new Promise((resolve) => {
+    const index = users.findIndex((user) => user.id === id);
+    users.splice(index, 1);
+    resolve(id);
+  });
