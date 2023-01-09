@@ -9,7 +9,7 @@ import {
 
 const PORT = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
+export const server = http.createServer((req, res) => {
   if (req.url === '/api/users' && req.method === 'GET') {
     getUsers(req, res);
   } else if (req.url?.match(/([a-fA-F0-9])+/) && req.method === 'GET') {

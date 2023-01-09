@@ -15,7 +15,11 @@
     "strict": true, /* Enable all strict type-checking options. */
     "noImplicitAny": false, /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     "skipLibCheck": true, /* Skip type checking all .d.ts files. */
-    "sourceMap": true
+    "sourceMap": true,
+    "types": [
+      "node",
+      "jest"
+    ],
   },
   "ts-node": {
     "esm": true
