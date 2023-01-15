@@ -12,7 +12,7 @@
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
-    "test:watch": "jest --watch"
+    "test:watch": "node --experimental-vm-modules ./node_modules/.bin/jest --watch"
   },
   "repository": {
     "type": "git",
