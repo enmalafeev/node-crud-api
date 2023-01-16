@@ -8,6 +8,8 @@ export const getUsers = async (req, res) => {
     res.end(JSON.stringify(users));
   } catch (err) {
     console.error(err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Internal Server Error' }));
   }
 };
 
@@ -26,6 +28,8 @@ export const getUser = async (req, res, id) => {
     }
   } catch (err) {
     console.error(err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Internal Server Error' }));
   }
 };
 
@@ -50,6 +54,8 @@ export const createUser = async (req, res) => {
     }
   } catch (err) {
     console.error(err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Internal Server Error' }));
   }
 };
 
@@ -78,6 +84,8 @@ export const updateUser = async (req, res, id) => {
     }
   } catch (err) {
     console.error(err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Internal Server Error' }));
   }
 };
 
@@ -96,5 +104,7 @@ export const deleteUser = async (req, res, id) => {
     }
   } catch (err) {
     console.error(err);
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Internal Server Error' }));
   }
 };
